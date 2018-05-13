@@ -13,6 +13,6 @@ If you want to help, you can do any of the following things:
 
 -Just create something with it and tell us!
 
-#Support or Contact
+# Support or Contact
 
 If you are having any troubles or need help, you can use the issues tab or email me at monoflauta@gmail.com
