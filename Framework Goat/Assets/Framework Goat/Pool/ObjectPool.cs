@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 
-namespace FrameWorkGoat.ObjectPool
+namespace FrameworkGoat.ObjectPool
 {
 
-    public class ObjectPool<T>
+    public class ObjectPool<T> : AbstractObjectPool
     {
 
         public delegate T FactoryMethod();
