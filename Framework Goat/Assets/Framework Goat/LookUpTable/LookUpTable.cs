@@ -1,0 +1,42 @@
+﻿using System.Collections.Generic;
+
+namespace FrameworkGoat.LookUpTable
+{
+    public class LookUpTable<T, T2>
+    {
+        public delegate T FactoryMethod(T2 value);
+
+        private FactoryMethod _factoryMethod;
+        private Dictionary<T2, T> _table;
+
+        /// <summary>
+        /// Creates a Look Up Table.
+        /// </summary>
+        /// <param name="factoryMethod">The factory method rule</param>
+        public LookUpTable(FactoryMethod factoryMethod)
+        {
+            _factoryMethod = factoryMethod;
+            _table = new Dictionary<T2, T>();
+        }
+
+        /// <summary>
+        /// Pre-calculates values. Useful for loading screens.
+        /// </summary>
+        /// <param name="value">The value to pre-calculate and store</param>
+        public void PreCalculateValue(T2 value)
+        {
+            _table[value] = _factoryMethod(value);
+        }
+
+        /// <summary>
+        /// Returns the value if already calculated. If not, it creates it and calculates it.
+        /// </summary>
+        /// <param name="value">Value to check</param>
+        /// <returns>Returns the result</returns>
+        public T GetValue(T2 value)
+        {
+            if (!_table.ContainsKey(value)) PreCalculateValue(value);
+            return _table[value];
+        }
+    }
+}
