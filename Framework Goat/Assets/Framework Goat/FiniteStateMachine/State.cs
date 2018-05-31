@@ -4,23 +4,18 @@
     {
         protected T _owner;
         protected FiniteStateMachine<T> _stateMachine;
-
+        
         /// <summary>
-        /// Constructor of the State
+        /// Called by the Finite State Machine when creating a state. Sets the state values.
         /// </summary>
-        /// <param name="owner">Owner of the state</param>
-        public State(T owner)
-        {
-            _owner = owner;
-        }
-
-        /// <summary>
-        /// Sets the Finite State Machine that owns this state. Automatically called from Finite State Machine when added the state.
-        /// </summary>
-        /// <param name="sm">The finite state machine</param>
-        public void SetStateMachine(FiniteStateMachine<T> sm)
+        /// <param name="sm">State machine</param>
+        /// <param name="owner">Owner</param>
+        /// <returns>The state</returns>
+        public State<T> SetState(FiniteStateMachine<T> sm, T owner)
         {
             _stateMachine = sm;
+            _owner = owner;
+            return this;
         }
 
         /// <summary>

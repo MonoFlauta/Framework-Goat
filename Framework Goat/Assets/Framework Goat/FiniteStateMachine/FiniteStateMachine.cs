@@ -18,13 +18,22 @@ namespace FrameworkGoat.FiniteStateMachine
         }
         
         /// <summary>
-        /// Adds a state
+        /// Adds a new state
         /// </summary>
-        /// <param name="state">State to add</param>
+        /// <typeparam name="TS">Type of the state</typeparam>
+        public void AddState<TS>() where TS:State<T>, new()
+        {
+            _states[typeof(TS)] = new TS().SetState(this, _owner);
+        }
+
+        /// <summary>
+        /// Sets the initial values to a given state and adds to the list of states
+        /// </summary>
+        /// <param name="state">The state to add</param>
         public void AddState(State<T> state)
         {
-            state.SetStateMachine(this);
-            _states.Add(state.GetType(), state);
+            state.SetState(this, _owner);
+            _states[state.GetType()] = state;
         }
 
         /// <summary>
@@ -40,6 +49,16 @@ namespace FrameworkGoat.FiniteStateMachine
                 _currentState = _states[typeof(TS)];
                 _currentState.Enter();
             }
+        }
+
+        /// <summary>
+        /// Returns a State given the type
+        /// </summary>
+        /// <typeparam name="TS">Type of the state to get</typeparam>
+        /// <returns>The state of the type</returns>
+        public TS GetState<TS>() where TS:State<T>
+        {
+            return _states[typeof(TS)] as TS;
         }
 
         /// <summary>
