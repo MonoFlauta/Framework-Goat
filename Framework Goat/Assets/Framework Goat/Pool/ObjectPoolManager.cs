@@ -45,6 +45,16 @@ namespace FrameworkGoat.ObjectPool
         }
 
         /// <summary>
+        /// Adds an existing Object Pool if it doesn't have already one of that type
+        /// </summary>
+        /// <param name="pool">Pool to be added</param>
+        public void AddObjectPool(AbstractObjectPool pool)
+        {
+            if (!_pools.ContainsKey(pool.GetType()))
+                _pools.Add(pool.GetType(), pool);
+        }
+
+        /// <summary>
         /// Gets an Object Pool
         /// </summary>
         /// <typeparam name="T">Type of the object pool</typeparam>
