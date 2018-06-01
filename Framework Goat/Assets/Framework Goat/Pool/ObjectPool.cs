@@ -1,29 +1,26 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace FrameworkGoat.ObjectPool
 {
 
     public class ObjectPool<T> : AbstractObjectPool
     {
-
-        public delegate T FactoryMethod();
-        public delegate void ChangeObjectState(T o);
-
         private List<T> _currentStock;
-        private FactoryMethod _factoryMethod;
+        private Func<T> _factoryMethod;
         private bool _isDynamic;
-        private ChangeObjectState _turnOnCallback;
-        private ChangeObjectState _turnOffCallback;
+        private Action<T> _turnOnCallback;
+        private Action<T> _turnOffCallback;
 
         /// <summary>
-        /// Creates a Pool and it's stock
+        /// Creates an object pool
         /// </summary>
-        /// <param name="factoryMethod">The method that returns an object</param>
-        /// <param name="turnOnCallback">The turn on callback</param>
-        /// <param name="turnOffCallback">The turn off callback</param>
+        /// <param name="factoryMethod">Factory method to create objects</param>
+        /// <param name="turnOnCallback">Callback to turn on the object</param>
+        /// <param name="turnOffCallback">Callback to turn off the object</param>
         /// <param name="initialStock">The initial stock that will be created</param>
-        /// <param name="isDynamic">Wether the pool is dynamic or not</param>
-        public ObjectPool(FactoryMethod factoryMethod, ChangeObjectState turnOnCallback, ChangeObjectState turnOffCallback, int initialStock = 0, bool isDynamic = true)
+        /// <param name="isDynamic">If the pool is dynamic</param>
+        public ObjectPool(Func<T> factoryMethod, Action<T> turnOnCallback, Action<T> turnOffCallback, int initialStock = 0, bool isDynamic = true)
         {
             _factoryMethod = factoryMethod;
             _isDynamic = isDynamic;
@@ -42,14 +39,14 @@ namespace FrameworkGoat.ObjectPool
         }
 
         /// <summary>
-        /// Creates a Pool with a given stock
+        /// Creates an object pool with a given initial stock
         /// </summary>
-        /// <param name="factoryMethod">The method that returns an object</param>
-        /// <param name="turnOnCallback">The turn on callback</param>
-        /// <param name="turnOffCallback">The turn off callback</param>
-        /// <param name="initialStock">The initial stock already created</param>
-        /// <param name="isDynamic">Wether the pool is dynamic or not</param>
-        public ObjectPool(FactoryMethod factoryMethod, ChangeObjectState turnOnCallback, ChangeObjectState turnOffCallback, List<T> initialStock, bool isDynamic = true)
+        /// <param name="factoryMethod">Factory method to create objects</param>
+        /// <param name="turnOnCallback">Callback to turn on the object</param>
+        /// <param name="turnOffCallback">Callback to turn off the object</param>
+        /// <param name="initialStock">The initial stock of objects</param>
+        /// <param name="isDynamic">If the pool is dynamic</param>
+        public ObjectPool(Func<T> factoryMethod, Action<T> turnOnCallback, Action<T> turnOffCallback, List<T> initialStock, bool isDynamic = true)
         {
             _factoryMethod = factoryMethod;
             _isDynamic = isDynamic;

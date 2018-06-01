@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace FrameworkGoat.ObjectPool
 {
@@ -15,30 +16,30 @@ namespace FrameworkGoat.ObjectPool
         }
 
         /// <summary>
-        /// Adds a new Object Pool
+        /// Creates an object pool
         /// </summary>
-        /// <typeparam name="T">Type of the pool</typeparam>
-        /// <param name="factoryMethod">The method that returns an object</param>
-        /// <param name="turnOnCallback">The turn on callback</param>
-        /// <param name="turnOffCallback">The turn off callback</param>
+        /// <typeparam name="T">The type of the pool</typeparam>
+        /// <param name="factoryMethod">Factory method to create objects</param>
+        /// <param name="turnOnCallback">Callback to turn on the object</param>
+        /// <param name="turnOffCallback">Callback to turn off the object</param>
         /// <param name="initialStock">The initial stock that will be created</param>
-        /// <param name="isDynamic">Wether the pool is dynamic or not</param>
-        public void AddObjectPool<T>(ObjectPool<T>.FactoryMethod factoryMethod, ObjectPool<T>.ChangeObjectState turnOnCallback, ObjectPool<T>.ChangeObjectState turnOffCallback, int initialStock = 0, bool isDynamic = true) where T : AbstractObjectPool, new()
+        /// <param name="isDynamic">If the pool is dynamic</param>
+        public void AddObjectPool<T>(Func<T> factoryMethod, Action<T> turnOnCallback, Action<T> turnOffCallback, int initialStock = 0, bool isDynamic = true) where T : AbstractObjectPool, new()
         {
             if(!_pools.ContainsKey(typeof(T)))
                 _pools.Add(typeof(T), new ObjectPool<T>(factoryMethod, turnOnCallback, turnOffCallback, initialStock, isDynamic));
         }
 
         /// <summary>
-        /// Adds a new Object Pool
+        /// Creates an object pool
         /// </summary>
-        /// <typeparam name="T">Type of the pool</typeparam>
-        /// <param name="factoryMethod">The method that returns an object</param>
-        /// <param name="turnOnCallback">The turn on callback</param>
-        /// <param name="turnOffCallback">The turn off callback</param>
-        /// <param name="initialStock">The initial stock already created</param>
-        /// <param name="isDynamic">Wether the pool is dynamic or not</param>
-        public void AddObjectPool<T>(ObjectPool<T>.FactoryMethod factoryMethod, ObjectPool<T>.ChangeObjectState turnOnCallback, ObjectPool<T>.ChangeObjectState turnOffCallback, List<T> initialStock, bool isDynamic = true) where T : AbstractObjectPool, new()
+        /// <typeparam name="T">The type of the pool</typeparam>
+        /// <param name="factoryMethod">Factory method to create objects</param>
+        /// <param name="turnOnCallback">Callback to turn on the object</param>
+        /// <param name="turnOffCallback">Callback to turn off the object</param>
+        /// <param name="initialStock">The initial stock of objects</param>
+        /// <param name="isDynamic">If the pool is dynamic</param>
+        public void AddObjectPool<T>(Func<T> factoryMethod, Action<T> turnOnCallback, Action<T> turnOffCallback, List<T> initialStock, bool isDynamic = true) where T : AbstractObjectPool, new()
         {
             if (!_pools.ContainsKey(typeof(T)))
                 _pools.Add(typeof(T), new ObjectPool<T>(factoryMethod, turnOnCallback, turnOffCallback, initialStock, isDynamic));
