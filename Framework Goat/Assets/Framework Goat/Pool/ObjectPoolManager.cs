@@ -24,7 +24,7 @@ namespace FrameworkGoat.ObjectPool
         /// <param name="turnOffCallback">Callback to turn off the object</param>
         /// <param name="initialStock">The initial stock that will be created</param>
         /// <param name="isDynamic">If the pool is dynamic</param>
-        public void AddObjectPool<T>(Func<T> factoryMethod, Action<T> turnOnCallback, Action<T> turnOffCallback, int initialStock = 0, bool isDynamic = true) where T : AbstractObjectPool, new()
+        public void AddObjectPool<T>(Func<T> factoryMethod, Action<T> turnOnCallback, Action<T> turnOffCallback, int initialStock = 0, bool isDynamic = true)
         {
             if(!_pools.ContainsKey(typeof(T)))
                 _pools.Add(typeof(T), new ObjectPool<T>(factoryMethod, turnOnCallback, turnOffCallback, initialStock, isDynamic));
