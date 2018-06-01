@@ -1,19 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace FrameworkGoat.LookUpTable
 {
     public class LookUpTable<T, T2>
     {
-        public delegate T FactoryMethod(T2 value);
-
-        private FactoryMethod _factoryMethod;
+        private Func<T2, T> _factoryMethod;
         private Dictionary<T2, T> _table;
 
         /// <summary>
         /// Creates a Look Up Table.
         /// </summary>
         /// <param name="factoryMethod">The factory method rule</param>
-        public LookUpTable(FactoryMethod factoryMethod)
+        public LookUpTable(Func<T2, T> factoryMethod)
         {
             _factoryMethod = factoryMethod;
             _table = new Dictionary<T2, T>();
