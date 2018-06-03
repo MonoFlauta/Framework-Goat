@@ -15,6 +15,7 @@ namespace FrameworkGoat.FiniteStateMachine
         public FiniteStateMachine(T owner)
         {
             _owner = owner;
+            _states = new Dictionary<System.Type, State<T>>();
         }
         
         /// <summary>
