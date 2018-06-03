@@ -62,6 +62,15 @@ namespace FrameworkGoat.FiniteStateMachine
         }
 
         /// <summary>
+        /// Returns the current state
+        /// </summary>
+        /// <returns>Current state</returns>
+        public State<T> GetCurrentState()
+        {
+            return _currentState;
+        }
+
+        /// <summary>
         /// Updates the current state
         /// </summary>
         public void Update()
