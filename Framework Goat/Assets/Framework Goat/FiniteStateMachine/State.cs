@@ -11,7 +11,7 @@
         /// <param name="sm">State machine</param>
         /// <param name="owner">Owner</param>
         /// <returns>The state</returns>
-        public State<T> SetState(FiniteStateMachine<T> sm, T owner)
+        public virtual State<T> SetState(FiniteStateMachine<T> sm, T owner)
         {
             _stateMachine = sm;
             _owner = owner;
