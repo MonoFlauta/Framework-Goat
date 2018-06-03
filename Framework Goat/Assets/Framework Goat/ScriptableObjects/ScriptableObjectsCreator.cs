@@ -13,7 +13,7 @@ namespace FrameworkGoat.ScriptableObjects
         public static void CreateAsset<T>() where T : ScriptableObject
         {
             T asset = ScriptableObject.CreateInstance<T>();
-            CreateAndFocusAsset(asset, GetValidPath(AssetDatabase.GetAssetPath(Selection.activeObject)));
+            CreateAndFocusAsset(asset, GetValidPath(AssetDatabase.GetAssetPath(Selection.activeObject), typeof(T)));
         }
 
         /// <summary>
@@ -24,20 +24,21 @@ namespace FrameworkGoat.ScriptableObjects
         public static void CreateAsset<T>(string path) where T : ScriptableObject
         {
             T asset = ScriptableObject.CreateInstance<T>();
-            CreateAndFocusAsset(asset, GetValidPath(path));
+            CreateAndFocusAsset(asset, GetValidPath(path, typeof(T)));
         }
 
         /// <summary>
-        /// Checks if the path is valid and modifies it if not
+        /// Modifies the path, if is not valid, for a valid one
         /// </summary>
         /// <param name="path">Path</param>
+        /// <param name="type">Type</param>
         /// <returns>Valid path</returns>
-        private static string GetValidPath(string path)
+        private static string GetValidPath(string path, System.Type type)
         {
             if (path == "") path = "Assets";
             else if (Path.GetExtension(path) != "")
                 path = path.Replace(Path.GetFileName(AssetDatabase.GetAssetPath(Selection.activeObject)), "");
-            return AssetDatabase.GenerateUniqueAssetPath(path + "/" + typeof(T).ToString() + ".asset");
+            return AssetDatabase.GenerateUniqueAssetPath(path + "/" + type.ToString() + ".asset");
         }
 
         /// <summary>
