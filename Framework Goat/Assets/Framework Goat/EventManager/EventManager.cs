@@ -5,6 +5,9 @@ namespace FrameworkGoat.EventManager
 {
     public class EventManager
     {
+        private static EventManager _instance;
+
+
         /// <summary>
         /// Singleton of the Instance
         /// </summary>
@@ -12,15 +15,11 @@ namespace FrameworkGoat.EventManager
         {
             get
             {
-                if (_instance == null)
-                    _instance = new EventManager();
+                if (_instance == null) _instance = new EventManager();
                 return _instance;
             }
         }
         
-        public delegate void EventCallback(params object[] parameters);
-
-        private static EventManager _instance;
         private Dictionary<string, Action<Event>> _events;
 
         /// <summary>
@@ -35,7 +34,7 @@ namespace FrameworkGoat.EventManager
         /// Subscribes to an event
         /// </summary>
         /// <param name="eventName">Event name</param>
-        /// <param name="callback">Callback of EventCallback type</param>
+        /// <param name="callback">Callback</param>
         public void Subscribe(string eventName, Action<Event> callback)
         {
             if (!_events.ContainsKey(eventName) || _events[eventName] == null)
@@ -48,7 +47,7 @@ namespace FrameworkGoat.EventManager
         /// Unsubscribes to an event
         /// </summary>
         /// <param name="eventName">Event name</param>
-        /// <param name="callback">Callback of EventCallback type</param>
+        /// <param name="callback">Callback</param>
         public void Unsubscribe(string eventName, Action<Event> callback)
         {
             _events[eventName] -= callback;
