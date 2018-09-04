@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace FrameworkGoat.EventManager
 {
@@ -16,17 +17,18 @@ namespace FrameworkGoat.EventManager
                 return _instance;
             }
         }
+        
         public delegate void EventCallback(params object[] parameters);
 
         private static EventManager _instance;
-        private Dictionary<string, EventCallback> _events;
+        private Dictionary<string, Action<Event>> _events;
 
         /// <summary>
         /// Creates a new EventManager
         /// </summary>
         private EventManager()
         {
-            _events = new Dictionary<string, EventCallback>();
+            _events = new Dictionary<string, Action<Event>>();
         }
 
         /// <summary>
@@ -34,7 +36,7 @@ namespace FrameworkGoat.EventManager
         /// </summary>
         /// <param name="eventName">Event name</param>
         /// <param name="callback">Callback of EventCallback type</param>
-        public void Subscribe(string eventName, EventCallback callback)
+        public void Subscribe(string eventName, Action<Event> callback)
         {
             if (!_events.ContainsKey(eventName) || _events[eventName] == null)
                 _events[eventName] = callback;
@@ -47,7 +49,7 @@ namespace FrameworkGoat.EventManager
         /// </summary>
         /// <param name="eventName">Event name</param>
         /// <param name="callback">Callback of EventCallback type</param>
-        public void Unsubscribe(string eventName, EventCallback callback)
+        public void Unsubscribe(string eventName, Action<Event> callback)
         {
             _events[eventName] -= callback;
         }
@@ -56,11 +58,11 @@ namespace FrameworkGoat.EventManager
         /// Fires an event
         /// </summary>
         /// <param name="eventName">Event name</param>
-        /// <param name="parameters">Parameters</param>
-        public void FireEvent(string eventName, params object[] parameters)
+        /// <param name="e">Event</param>
+        public void FireEvent(string eventName, Event e = null)
         {
             if (_events.ContainsKey(eventName))
-                _events[eventName](parameters);
+                _events[eventName](e);
         }
     }
 }
