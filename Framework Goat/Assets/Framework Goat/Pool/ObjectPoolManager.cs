@@ -5,6 +5,16 @@ namespace FrameworkGoat.ObjectPool
 {
     public class ObjectPoolManager
     {
+        private static ObjectPoolManager _instance;
+        public static ObjectPoolManager Instance
+        {
+            get
+            {
+                if (_instance == null) _instance = new ObjectPoolManager();
+                return Instance;
+            }
+        }
+
         private Dictionary<System.Type, AbstractObjectPool> _pools;
 
         /// <summary>
