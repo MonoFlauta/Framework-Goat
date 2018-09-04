@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace FrameworkGoat.EventManager
+namespace FrameworkGoat
 {
     public class EventManager
     {

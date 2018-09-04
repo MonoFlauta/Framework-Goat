@@ -1,4 +1,4 @@
-﻿namespace FrameworkGoat.Math
+﻿namespace FrameworkGoat
 {
 
     public class Math

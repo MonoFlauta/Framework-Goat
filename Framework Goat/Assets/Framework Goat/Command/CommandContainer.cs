@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace FrameworkGoat.Command
+namespace FrameworkGoat
 {
     public class CommandContainer<T1, T2> where T2 : Command
     {

@@ -1,4 +1,4 @@
-﻿namespace FrameworkGoat.FiniteStateMachine
+﻿namespace FrameworkGoat
 {
     public abstract class State<T>
     {

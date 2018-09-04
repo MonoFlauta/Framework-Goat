@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace FrameworkGoat.LookUpTable
+namespace FrameworkGoat
 {
     public class LookUpTable<T, T2>
     {

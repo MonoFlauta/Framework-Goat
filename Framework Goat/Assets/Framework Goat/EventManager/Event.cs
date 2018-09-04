@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace FrameworkGoat.EventManager
+namespace FrameworkGoat
 {
     public class Event
     {

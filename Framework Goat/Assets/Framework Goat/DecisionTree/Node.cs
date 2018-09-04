@@ -1,4 +1,4 @@
-﻿namespace FrameworkGoat.DecisionTree
+﻿namespace FrameworkGoat
 {
     public abstract class Node
     {

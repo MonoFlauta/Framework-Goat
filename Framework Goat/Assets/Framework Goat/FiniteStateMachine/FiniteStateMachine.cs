@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace FrameworkGoat.FiniteStateMachine
+namespace FrameworkGoat
 {
     public class FiniteStateMachine<T>
     {

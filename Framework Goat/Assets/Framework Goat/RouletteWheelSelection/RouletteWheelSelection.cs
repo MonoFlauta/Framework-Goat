@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace FrameworkGoat.RouletteWheelSelection
+namespace FrameworkGoat
 {
     public class RouletteWheelSelection<T>
     {

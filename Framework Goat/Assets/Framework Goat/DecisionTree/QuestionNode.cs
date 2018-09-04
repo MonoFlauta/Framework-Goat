@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FrameworkGoat.DecisionTree
+namespace FrameworkGoat
 {
     public class QuestionNode : Node
     {

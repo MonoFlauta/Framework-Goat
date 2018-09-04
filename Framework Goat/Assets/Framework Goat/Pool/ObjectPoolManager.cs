@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace FrameworkGoat.ObjectPool
+namespace FrameworkGoat
 {
     public class ObjectPoolManager
     {

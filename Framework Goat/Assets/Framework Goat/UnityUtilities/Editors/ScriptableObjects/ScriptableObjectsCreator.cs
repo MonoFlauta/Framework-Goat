@@ -2,7 +2,7 @@
 using UnityEditor;
 using System.IO;
 
-namespace FrameworkGoat.ScriptableObjects
+namespace FrameworkGoat
 {
     public class ScriptableObjectsCreator
     {

@@ -1,4 +1,4 @@
-﻿namespace FrameworkGoat.Command
+﻿namespace FrameworkGoat
 {
     public abstract class Command
     {

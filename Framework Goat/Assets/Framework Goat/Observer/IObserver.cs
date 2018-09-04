@@ -1,4 +1,4 @@
-﻿namespace FrameworkGoat.Observer
+﻿namespace FrameworkGoat
 {
     public interface IObserver
     {

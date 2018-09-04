@@ -1,4 +1,4 @@
-﻿namespace FrameworkGoat.DecisionTree
+﻿namespace FrameworkGoat
 {
     /// <summary>
     /// Unnecessary decision tree container. If you want, you can use it, otherwise, you can use the nodes directly.

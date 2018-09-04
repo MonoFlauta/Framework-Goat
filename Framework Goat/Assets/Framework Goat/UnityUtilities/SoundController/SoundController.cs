@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace FrameworkGoat.SoundController
+namespace FrameworkGoat
 {
     public class SoundController : MonoBehaviour
     {
