@@ -10,6 +10,7 @@ namespace FrameworkGoat
 
         private Func<int> _updateCallback;
         private SpriteRenderer _spriteRenderer;
+        private int amplitude = 1;
 
         void Start()
         {
@@ -25,19 +26,20 @@ namespace FrameworkGoat
         /// <summary>
         /// Sets the sorting order by using the enum options
         /// </summary>
-        /// <param name="sortingOrder">Sorting order</param>
-        public void SetSortingOrder(SortingOrder sortingOrder)
+        /// <param name="sortingOrder">Sorting layer</param>
+        /// <param name="amplitude">Amplitude of sorting</param>
+        public void SetSortingOrder(SortingOrder sortingOrder, float amplitude = 1)
         {
             switch(sortingOrder)
             {
                 case SortingOrder.X:
-                    _updateCallback = () => { return (int)transform.position.x; };
+                    _updateCallback = () => { return (int)(transform.position.x * amplitude); };
                     break;
                 case SortingOrder.Y:
-                    _updateCallback = () => { return (int)transform.position.y; };
+                    _updateCallback = () => { return (int)(transform.position.y * amplitude); };
                     break;
                 case SortingOrder.Z:
-                    _updateCallback = () => { return (int)transform.position.z; };
+                    _updateCallback = () => { return (int)(transform.position.z * amplitude); };
                     break;
             }
         }
