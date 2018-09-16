@@ -69,7 +69,7 @@ namespace FrameworkGoat
                 result = _currentStock[0];
                 _currentStock.RemoveAt(0);
             }
-            if (_isDynamic)
+            else if (_isDynamic)
                 result = _factoryMethod();
             _turnOnCallback(result);
             return result;
