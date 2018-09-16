@@ -11,7 +11,7 @@ namespace FrameworkGoat
             get
             {
                 if (_instance == null) _instance = new ObjectPoolManager();
-                return Instance;
+                return _instance;
             }
         }
 
