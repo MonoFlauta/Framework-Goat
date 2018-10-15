@@ -63,5 +63,22 @@ namespace FrameworkGoat
             if (_events.ContainsKey(eventName))
                 _events[eventName](e);
         }
+
+        /// <summary>
+        /// Clears all the events
+        /// </summary>
+        public void Clear()
+        {
+            _events.Clear();
+        }
+
+        /// <summary>
+        /// Subscribes clear to an event
+        /// </summary>
+        /// <param name="eventName">Name of the event</param>
+        public void SubscribeClear(string eventName)
+        {
+            Subscribe(eventName, (e) => Clear());
+        }
     }
 }
