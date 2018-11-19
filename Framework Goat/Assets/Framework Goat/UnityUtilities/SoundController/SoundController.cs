@@ -9,7 +9,7 @@ namespace FrameworkGoat
         private Dictionary<string, AudioSource> _audioSources;
         private AudioSource _sfx;
 
-        void Start()
+        private void Awake()       
         {
             _audioSources = new Dictionary<string, AudioSource>();
             _sfx = gameObject.AddComponent<AudioSource>();
@@ -55,6 +55,17 @@ namespace FrameworkGoat
         public void PlayTheme(string key)
         {
             _audioSources[key].Play();
+        }
+
+        /// <summary>
+        /// Stops all themes
+        /// </summary>
+        public void StopAllThemes()
+        {
+            foreach(var item in _audioSources)
+            {
+                item.Value.Stop();
+            }
         }
 
         /// <summary>
