@@ -51,6 +51,7 @@ namespace FrameworkGoat
         public void Unsubscribe(string eventName, Action<Event> callback)
         {
             _events[eventName] -= callback;
+            if (_events[eventName] == null) _events.Remove(eventName);
         }
 
         /// <summary>
