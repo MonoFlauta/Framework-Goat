@@ -14,13 +14,13 @@ namespace FrameworkGoat
         {
             get
             {
+                if(_instance == null)
+                {
+                    _instance = new GameObject("UpdateManager").AddComponent<UpdateManager>();
+                    DontDestroyOnLoad(_instance);
+                }
                 return _instance;
             }
-        }
-
-        void Awake()
-        {
-            _instance = this;
         }
 
         private ITick[] _ticks = new ITick[0];
