@@ -10,7 +10,6 @@ namespace FrameworkGoat
 
         private Func<int> _updateCallback;
         private SpriteRenderer _spriteRenderer;
-        private int amplitude = 1;
 
         void Start()
         {
