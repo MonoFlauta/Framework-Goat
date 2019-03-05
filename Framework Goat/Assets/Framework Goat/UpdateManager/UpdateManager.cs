@@ -137,5 +137,29 @@ namespace FrameworkGoat
         {
             return _fixedTicks.Contains(t);
         }
+
+        /// <summary>
+        /// Clears Tick calls
+        /// </summary>
+        public void ClearTick()
+        {
+            _ticks = new ITick[0];
+        }
+
+        /// <summary>
+        /// Clears Late Tick calls
+        /// </summary>
+        public void ClearLateTick()
+        {
+            _lateTicks = new ILateTick[0];
+        }
+
+        /// <summary>
+        /// Clears Fixed Tick calls
+        /// </summary>
+        public void ClearFixedTick()
+        {
+            _fixedTicks = new IFixedTick[0];
+        }
     }
 }
