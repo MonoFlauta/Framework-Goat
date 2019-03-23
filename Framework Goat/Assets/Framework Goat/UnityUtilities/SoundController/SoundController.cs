@@ -78,6 +78,16 @@ namespace FrameworkGoat
         }
 
         /// <summary>
+        /// Plays a Sound Effect with a given volume scale
+        /// </summary>
+        /// <param name="sfx">The Sound Effect</param>
+        /// <param name="volumeScale">The volume scale</param>
+        public void PlaySFX(AudioClip sfx, float volumeScale)
+        {
+            _sfx.PlayOneShot(sfx, volumeScale);
+        }
+
+        /// <summary>
         /// Sets a volume to a theme
         /// </summary>
         /// <param name="key">Key of the theme</param>
