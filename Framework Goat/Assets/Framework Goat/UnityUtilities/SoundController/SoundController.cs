@@ -26,6 +26,7 @@ namespace FrameworkGoat
             var audioSource = gameObject.AddComponent<AudioSource>();
             audioSource.playOnAwake = false;
             audioSource.clip = music;
+            audioSource.loop = true;
             _audioSources.Add(key, audioSource);
         }
 
