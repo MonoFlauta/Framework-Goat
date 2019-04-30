@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace FrameworkGoat
 {
     public class RouletteWheelSelection<T>
     {
         private Dictionary<T, int> _values;
-        private Random _random;
 
         /// <summary>
         /// Creates a Roulette Wheel Selection
@@ -14,7 +13,6 @@ namespace FrameworkGoat
         public RouletteWheelSelection()
         {
             _values = new Dictionary<T, int>();
-            _random = new Random();
         }
 
         /// <summary>
@@ -47,7 +45,7 @@ namespace FrameworkGoat
             {
                 total += item.Value;
             }
-            _random.Next(0, total);
+            total = Random.Range(0, total);
             foreach(var item in _values)
             {
                 total -= item.Value;
