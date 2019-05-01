@@ -47,5 +47,14 @@ namespace FrameworkGoat
                 _value = _hideMethod(value);
             }
         }
+
+        /// <summary>
+        /// Implicit operator to use the value directly
+        /// </summary>
+        /// <param name="hidedValue">Returns the value directly</param>
+        public static implicit operator T(HidedValue<T> hidedValue)
+        {
+            return hidedValue.Value;
+        }
     }
 }
