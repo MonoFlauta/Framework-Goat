@@ -38,6 +38,28 @@ namespace FrameworkGoat
         }
 
         /// <summary>
+        /// Adds a value to X
+        /// </summary>
+        /// <param name="vector">Vector to use</param>
+        /// <param name="x">Value to add</param>
+        /// <returns>The vector with the value added</returns>
+        public static Vector2 AddX(this Vector2 vector, float x)
+        {
+            return new Vector2(vector.x + x, vector.y);
+        }
+
+        /// <summary>
+        /// Adds a value to Y
+        /// </summary>
+        /// <param name="vector">Vector to use</param>
+        /// <param name="y">Value to add</param>
+        /// <returns>The vector with the value added</returns>
+        public static Vector2 AddY(this Vector2 vector, float y)
+        {
+            return new Vector2(vector.x, vector.y + y);
+        }
+
+        /// <summary>
         /// Sets the X value to a Vector3
         /// </summary>
         /// <param name="vector">Vector3 to use</param>
@@ -68,6 +90,39 @@ namespace FrameworkGoat
         public static Vector3 SetZ(this Vector3 vector, float z)
         {
             return new Vector3(vector.x, vector.y, z);
+        }
+
+        /// <summary>
+        /// Adds a value to X
+        /// </summary>
+        /// <param name="vector">Vector to use</param>
+        /// <param name="x">Value to add</param>
+        /// <returns>The vector with the value added</returns>
+        public static Vector3 AddX(this Vector3 vector, float x)
+        {
+            return new Vector3(vector.x + x, vector.y, vector.z);
+        }
+
+        /// <summary>
+        /// Adds a value to Y
+        /// </summary>
+        /// <param name="vector">Vector to use</param>
+        /// <param name="y">Value to add</param>
+        /// <returns>The vector with the value added</returns>
+        public static Vector3 AddY(this Vector3 vector, float y)
+        {
+            return new Vector3(vector.x, vector.y + y, vector.z);
+        }
+
+        /// <summary>
+        /// Adds a value to Z
+        /// </summary>
+        /// <param name="vector">Vector to use</param>
+        /// <param name="z">Value to add</param>
+        /// <returns>The vector with the value added</returns>
+        public static Vector3 AddZ(this Vector3 vector, float z)
+        {
+            return new Vector3(vector.x, vector.y, vector.z + z);
         }
     }
 }
