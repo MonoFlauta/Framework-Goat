@@ -60,6 +60,17 @@ namespace FrameworkGoat
         }
 
         /// <summary>
+        /// Normalizes a Vector2 to a magnitude
+        /// </summary>
+        /// <param name="vector">Vector to normalize</param>
+        /// <param name="magnitude">New magnitude</param>
+        /// <returns>The Vector3 normalized</returns>
+        public static Vector2 Normalize(this Vector2 vector, float magnitude)
+        {
+            return vector.normalized * magnitude;
+        }
+
+        /// <summary>
         /// Sets the X value to a Vector3
         /// </summary>
         /// <param name="vector">Vector3 to use</param>
@@ -123,6 +134,17 @@ namespace FrameworkGoat
         public static Vector3 AddZ(this Vector3 vector, float z)
         {
             return new Vector3(vector.x, vector.y, vector.z + z);
+        }
+
+        /// <summary>
+        /// Normalizes a Vector3 to a magnitude
+        /// </summary>
+        /// <param name="vector">Vector to normalize</param>
+        /// <param name="magnitude">New magnitude</param>
+        /// <returns>The Vector3 normalized</returns>
+        public static Vector3 Normalize(this Vector3 vector, float magnitude = 1)
+        {
+            return vector.normalized * magnitude;
         }
     }
 }
