@@ -13,7 +13,7 @@ namespace FrameworkGoat
         /// <returns>Random item</returns>
         public static T GetRandomItem<T>(this IList<T> list)
         {
-            return list[Random.Range(0, list.Count - 1)];
+            return list[Random.Range(0, list.Count)];
         }
 
         /// <summary>
