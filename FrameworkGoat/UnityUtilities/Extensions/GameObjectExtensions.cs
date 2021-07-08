@@ -26,13 +26,24 @@ namespace FrameworkGoat
         /// Gets, or adds if doesn't contain yet, a component
         /// </summary>
         /// <param name="gameObject">GameObject to use</param>
-        /// <typeparam name="T">The component type</typeparam>
-        /// <returns>Returns the component</returns>
+        /// <typeparam name="T">Component type</typeparam>
+        /// <returns>Component</returns>
         public static T GetOrAddComponent<T>(this GameObject gameObject) where T : MonoBehaviour
         {
             var component = gameObject.GetComponent<T>();
             if (component == null) gameObject.AddComponent<T>();
             return component;
+        }
+
+        /// <summary>
+        /// Returns true if GameObject has component
+        /// </summary>
+        /// <param name="gameObject">GameObject to use</param>
+        /// <typeparam name="T">Component type</typeparam>
+        /// <returns>If has component</returns>
+        public static bool HasComponent<T>(this GameObject gameObject) where T : MonoBehaviour
+        {
+            return gameObject.GetComponent<T>() != null;
         }
     }
 }
