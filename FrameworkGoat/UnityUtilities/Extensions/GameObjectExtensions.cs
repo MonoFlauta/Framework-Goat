@@ -10,10 +10,16 @@ namespace FrameworkGoat
         /// <param name="gameObject">GameObject to use</param>
         public static void DestroyChildren(this GameObject gameObject)
         {
-            for (var i = gameObject.transform.childCount - 1; i >= 0; i--)
-            {
-                Object.Destroy(gameObject.transform.GetChild(i).gameObject);
-            }
+            gameObject.transform.DestroyChildren();
+        }
+
+        /// <summary>
+        /// Resets transform's position, scale and rotation
+        /// </summary>
+        /// <param name="gameObject">GameObject to use</param>
+        public static void ResetTransformation(this GameObject gameObject)
+        {
+            gameObject.transform.ResetTransformation();
         }
     }
 }
