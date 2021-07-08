@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Linq;
+using UnityEngine;
 
 namespace FrameworkGoat
 {
@@ -145,6 +147,182 @@ namespace FrameworkGoat
         public static Vector3 Normalize(this Vector3 vector, float magnitude = 1)
         {
             return vector.normalized * magnitude;
+        }
+
+        /// <summary>
+        /// Gets closest vector to the vector given an array of vectors
+        /// </summary>
+        /// <param name="vector">Vector to use</param>
+        /// <param name="otherVectors">Vectors to check with</param>
+        /// <returns>Closest vector</returns>
+        /// <exception cref="Exception">The list of other vectors is empty</exception>
+        public static Vector3 GetClosestVector3From(this Vector3 vector, Vector3[] otherVectors)
+        {
+            if (otherVectors.Length == 0) throw new Exception("The list of other vectors is empty");
+            var minDistance = Vector3.Distance(vector, otherVectors[0]);
+            var minVector = otherVectors[0];
+            for (var i = otherVectors.Length - 1; i > 0; i--)
+            {
+                var newDistance = Vector3.Distance(vector, otherVectors[i]);
+                if (newDistance < minDistance)
+                {
+                    minDistance = newDistance;
+                    minVector = otherVectors[i];
+                }
+            }
+            return minVector;
+        }
+        
+        /// <summary>
+        /// Gets closest vector to the vector given an array of vectors
+        /// </summary>
+        /// <param name="vector">Vector to use</param>
+        /// <param name="otherVectors">Vectors to check with</param>
+        /// <returns>Closest vector</returns>
+        /// <exception cref="Exception">The list of other vectors is empty</exception>
+        public static Vector2 GetClosestVector2From(this Vector2 vector, Vector2[] otherVectors)
+        {
+            if (otherVectors.Length == 0) throw new Exception("The list of other vectors is empty");
+            var minDistance = Vector2.Distance(vector, otherVectors[0]);
+            var minVector = otherVectors[0];
+            for (var i = otherVectors.Length - 1; i > 0; i--)
+            {
+                var newDistance = Vector2.Distance(vector, otherVectors[i]);
+                if (newDistance < minDistance)
+                {
+                    minDistance = newDistance;
+                    minVector = otherVectors[i];
+                }
+            }
+            return minVector;
+        }
+        
+        /// <summary>
+        /// Gets closest distance to the vector given an array of vectors
+        /// </summary>
+        /// <param name="vector">Vector to use</param>
+        /// <param name="otherVectors">Vectors to check with</param>
+        /// <returns>Closest distance</returns>
+        /// <exception cref="Exception">The list of other vectors is empty</exception>
+        public static float GetClosestDistanceFrom(this Vector3 vector, Vector3[] otherVectors)
+        {
+            if (otherVectors.Length == 0) throw new Exception("The list of other vectors is empty");
+            var minDistance = Vector3.Distance(vector, otherVectors[0]);
+            for (var i = otherVectors.Length - 1; i > 0; i--)
+            {
+                var newDistance = Vector3.Distance(vector, otherVectors[i]);
+                if (newDistance < minDistance)
+                    minDistance = newDistance;
+            }
+            return minDistance;
+        }
+        
+        /// <summary>
+        /// Gets closest distance to the vector given an array of vectors
+        /// </summary>
+        /// <param name="vector">Vector to use</param>
+        /// <param name="otherVectors">Vectors to check with</param>
+        /// <returns>Closest distance</returns>
+        /// <exception cref="Exception">The list of other vectors is empty</exception>
+        public static float GetClosestDistanceFrom(this Vector2 vector, Vector2[] otherVectors)
+        {
+            if (otherVectors.Length == 0) throw new Exception("The list of other vectors is empty");
+            var minDistance = Vector2.Distance(vector, otherVectors[0]);
+            for (var i = otherVectors.Length - 1; i > 0; i--)
+            {
+                var newDistance = Vector2.Distance(vector, otherVectors[i]);
+                if (newDistance < minDistance)
+                    minDistance = newDistance;
+            }
+            return minDistance;
+        }
+        
+        /// <summary>
+        /// Gets farthest vector to the vector given an array of vectors
+        /// </summary>
+        /// <param name="vector">Vector to use</param>
+        /// <param name="otherVectors">Vectors to check with</param>
+        /// <returns>Farthest vector</returns>
+        /// <exception cref="Exception">The list of other vectors is empty</exception>
+        public static Vector3 GetFarthestVector3From(this Vector3 vector, Vector3[] otherVectors)
+        {
+            if (otherVectors.Length == 0) throw new Exception("The list of other vectors is empty");
+            var maxDistance = Vector3.Distance(vector, otherVectors[0]);
+            var maxVector = otherVectors[0];
+            for (var i = otherVectors.Length - 1; i > 0; i--)
+            {
+                var newDistance = Vector3.Distance(vector, otherVectors[i]);
+                if (newDistance > maxDistance)
+                {
+                    maxDistance = newDistance;
+                    maxVector = otherVectors[i];
+                }
+            }
+            return maxVector;
+        }
+        
+        /// <summary>
+        /// Gets farthest vector to the vector given an array of vectors
+        /// </summary>
+        /// <param name="vector">Vector to use</param>
+        /// <param name="otherVectors">Vectors to check with</param>
+        /// <returns>Farthest vector</returns>
+        /// <exception cref="Exception">The list of other vectors is empty</exception>
+        public static Vector2 GetFarthestVector2From(this Vector2 vector, Vector2[] otherVectors)
+        {
+            if (otherVectors.Length == 0) throw new Exception("The list of other vectors is empty");
+            var maxDistance = Vector2.Distance(vector, otherVectors[0]);
+            var maxVector = otherVectors[0];
+            for (var i = otherVectors.Length - 1; i > 0; i--)
+            {
+                var newDistance = Vector2.Distance(vector, otherVectors[i]);
+                if (newDistance > maxDistance)
+                {
+                    maxDistance = newDistance;
+                    maxVector = otherVectors[i];
+                }
+            }
+            return maxVector;
+        }
+        
+        /// <summary>
+        /// Gets farthest distance to the vector given an array of vectors
+        /// </summary>
+        /// <param name="vector">Vector to use</param>
+        /// <param name="otherVectors">Vectors to check with</param>
+        /// <returns>Farthest distance</returns>
+        /// <exception cref="Exception">The list of other vectors is empty</exception>
+        public static float GetFarthestDistanceFrom(this Vector3 vector, Vector3[] otherVectors)
+        {
+            if (otherVectors.Length == 0) throw new Exception("The list of other vectors is empty");
+            var maxDistance = Vector3.Distance(vector, otherVectors[0]);
+            for (var i = otherVectors.Length - 1; i > 0; i--)
+            {
+                var newDistance = Vector3.Distance(vector, otherVectors[i]);
+                if (newDistance > maxDistance)
+                    maxDistance = newDistance;
+            }
+            return maxDistance;
+        }
+        
+        /// <summary>
+        /// Gets farthest distance to the vector given an array of vectors
+        /// </summary>
+        /// <param name="vector">Vector to use</param>
+        /// <param name="otherVectors">Vectors to check with</param>
+        /// <returns>Farthest distance</returns>
+        /// <exception cref="Exception">The list of other vectors is empty</exception>
+        public static float GetFarthestDistanceFrom(this Vector2 vector, Vector2[] otherVectors)
+        {
+            if (otherVectors.Length == 0) throw new Exception("The list of other vectors is empty");
+            var maxDistance = Vector2.Distance(vector, otherVectors[0]);
+            for (var i = otherVectors.Length - 1; i > 0; i--)
+            {
+                var newDistance = Vector2.Distance(vector, otherVectors[i]);
+                if (newDistance > maxDistance)
+                    maxDistance = newDistance;
+            }
+            return maxDistance;
         }
     }
 }
