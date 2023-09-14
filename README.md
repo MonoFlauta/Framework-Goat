@@ -1,6 +1,19 @@
 # Welcome to Framework Goat
 This is a set of tools made in C# for Unity. Feel free to use it, ask for stuff and/or help adding more to it!
 
+# Getting Started
+
+Add the Framework Goat through Package Manager in Unity by going to:
+
+**Windows>Package Manager**
+
+Then press the **+** icon at the top left corner and select **Add package from git URL...**
+
+There, insert the url:
+`https://github.com/MonoFlauta/Framework-Goat.git`
+
+More documentation can be found [here](https://github.com/MonoFlauta/Framework-Goat/wiki)
+
 # How can I help?
 
 If you want to help, you can do any of the following things:
