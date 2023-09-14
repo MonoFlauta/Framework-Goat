@@ -1,3 +1,13 @@
+# [1.3.1]
+
+## New
+
+- Added tutorial on how to implement the Framework Goat from Package Manager in Unity
+
+## Fixes
+
+- Added missing assembly
+
 # [1.3.0]
 
 ## New
