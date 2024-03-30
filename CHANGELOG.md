@@ -1,3 +1,9 @@
+# [1.4.0]
+
+## New
+
+- Added display version for Text and Text Mesh Pro
+
 # [1.3.1]
 
 ## New
