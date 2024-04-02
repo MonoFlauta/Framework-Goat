@@ -1,3 +1,9 @@
+# [1.4.1]
+
+## Fixes
+
+- Added missing assembly for editor
+
 # [1.4.0]
 
 ## New
