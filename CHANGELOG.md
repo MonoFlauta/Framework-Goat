@@ -1,3 +1,9 @@
+# [1.4.2]
+
+## Fixes
+
+- Added missing dependency for TMP
+
 # [1.4.1]
 
 ## Fixes
