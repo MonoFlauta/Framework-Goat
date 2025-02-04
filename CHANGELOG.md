@@ -1,3 +1,13 @@
+# [1.4.3]
+
+## New
+
+- Added a way to check if there is a file with the SaveAndLoadManager
+
+## Fixes
+
+- Fixed documentation in SaveAndLoadManager
+
 # [1.4.2]
 
 ## Fixes

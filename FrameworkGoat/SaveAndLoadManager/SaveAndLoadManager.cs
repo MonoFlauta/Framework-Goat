@@ -78,8 +78,8 @@ namespace FrameworkGoat
         /// Loads a file from the given path with the given file name, deserializes and returns the result.
         /// </summary>
         /// <typeparam name="T">Type of the saved data</typeparam>
-        /// <param name="path">File name</param>
-        /// <param name="fileName">The saved data</param>
+        /// <param name="path">File path</param>
+        /// <param name="fileName">File name</param>
         /// <returns>The saved data</returns>
         public static T Load<T>(string path, string fileName)
         {
@@ -89,5 +89,29 @@ namespace FrameworkGoat
             fs.Close();
             return result;
         }
+
+        /// <summary>
+        /// Checks if there is a file in the persistent data path /GoatSave.g
+        /// </summary>
+        /// <returns>If there is a file</returns>
+        public static bool HasASave() => 
+            File.Exists(Application.persistentDataPath + "/GoatSave.g");
+
+        /// <summary>
+        /// Checks if there is a file at the persistent data path with the given file name
+        /// </summary>
+        /// <param name="fileName">File name</param>
+        /// <returns>If there is a file</returns>
+        public static bool HasASave(string fileName) =>
+            File.Exists(Application.persistentDataPath + "/" + fileName);
+
+        /// <summary>
+        /// Checks if there is a file at the given path with the given file name
+        /// </summary>
+        /// <param name="path">File path</param>
+        /// <param name="fileName">File name</param>
+        /// <returns>If there is a file</returns>
+        public static bool HasASave(string path, string fileName) =>
+            File.Exists(path + fileName);
     }
 }
