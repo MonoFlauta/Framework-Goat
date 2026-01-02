@@ -177,7 +177,7 @@ namespace FrameworkGoat
         /// <typeparam name="T">Type of the pool</typeparam>
         public void RemovePool<T>()
         {
-            _pools[typeof(T) + "ByType"] = null;
+            _pools.Remove(typeof(T) + "ByType");
         }
 
         /// <summary>
@@ -186,7 +186,7 @@ namespace FrameworkGoat
         /// <param name="poolName">Pool name</param>
         public void RemovePool(string poolName)
         {
-            _pools[poolName] = null;
+            _pools.Remove(poolName);
         }
     }
 }

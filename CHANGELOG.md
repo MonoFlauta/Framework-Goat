@@ -1,3 +1,9 @@
+# [1.4.4]
+
+## Fixes
+
+- Fixed Remove for Object Pool Manager
+
 # [1.4.3]
 
 ## New
