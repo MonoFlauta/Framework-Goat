@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace FrameworkGoat
 {
@@ -49,6 +50,10 @@ namespace FrameworkGoat
             {
                 _currentState = _states[typeof(TS)];
                 _currentState.Enter();
+            }
+            else
+            {
+                Debug.LogError($"Framework Goat: Trying to set state {typeof(TS)} but the state does not exist");
             }
         }
 

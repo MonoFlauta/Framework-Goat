@@ -1,3 +1,8 @@
+# [1.4.5]
+## New
+
+- Added a log when trying to transition to a state that does not exist in the FSM
+
 # [1.4.4]
 
 ## Fixes
