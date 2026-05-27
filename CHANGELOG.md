@@ -1,3 +1,8 @@
+# [1.4.6]
+## Fixes
+
+- Set State methods to virtual instead of abstract so you only need to implement the ones you actually use
+
 # [1.4.5]
 ## New
 

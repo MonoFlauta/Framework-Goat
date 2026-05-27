@@ -21,21 +21,21 @@
         /// <summary>
         /// Called when entering the state
         /// </summary>
-        public abstract void Enter();
+        public virtual void Enter(){}
 
         /// <summary>
         /// Called to update the state
         /// </summary>
-        public abstract void Update();
+        public virtual void Update(){}
 
         /// <summary>
         /// Called to late update the state
         /// </summary>
-        public abstract void LateUpdate();
+        public virtual void LateUpdate(){}
 
         /// <summary>
         /// Called to exit the state
         /// </summary>
-        public abstract void Exit();
+        public virtual void Exit(){}
     }
 }
